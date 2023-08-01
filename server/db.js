@@ -1,4 +1,4 @@
-import { Pool } from "pg";
+const { Pool } = require("pg");
 
 const pool = new Pool({
     user: "postgres",
@@ -8,4 +8,4 @@ const pool = new Pool({
     database: "tododb"
 });
 
-export default pool;
+module.exports = pool;
