@@ -1,3 +1,80 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+  background-color: hsl(0, 0%, 98%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header-text {
+  letter-spacing: 0.8rem;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: hsl(0, 0%, 98%);
+  width: 100%;
+}
+
+.circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid hsl(233, 11%, 84%);
+}
+
+.input-text {
+  color: hsl(236, 9%, 61%);
+  font-weight: 700;
+}
+
+.input-text::placeholder {
+  color: hsl(236, 9%, 61%);
+  font-weight: 700;
+}
+
+@media screen and (min-width: 320px) {
+  body {
+    background-image: url('./images/bg-mobile-light.jpg');
+    width: 85%;
+    padding-top: 3.5rem;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url('./images/bg-desktop-light.jpg');
+    width: 55%;
+    padding-top: 3rem;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    width: 50%;
+    padding-top: 4rem;
+    margin: auto;
+  }
+}

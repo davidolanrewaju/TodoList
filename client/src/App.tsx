@@ -1,11 +1,13 @@
-import './App.css';
+import Header from "./components/Header";
+import Input from "./components/Input";
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline text-blue-300">
-      Simple React Typescript Tailwind Sample
-    </h1>
-  );  
+    <div>
+      <Header />
+      <Input />
+    </div>
+  );
 }
 
 export default App;
