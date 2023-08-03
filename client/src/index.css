@@ -38,7 +38,7 @@ body {
 
 .circle {
   width: 25px;
-  height: 25px;
+  height: 23px;
   border-radius: 50%;
   border: 2px solid hsl(233, 11%, 84%);
 }
@@ -51,6 +51,11 @@ body {
 .input-text::placeholder {
   color: hsl(236, 9%, 61%);
   font-weight: 700;
+}
+
+.enter {
+  color: hsl(233, 11%, 84%);
+  align-self: flex-end;
 }
 
 @media screen and (min-width: 320px) {
