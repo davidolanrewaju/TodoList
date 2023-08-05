@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
+import EditIcon from "./EditIcon";
 
 type TodoData = {
-    todo_id: number;
-    title: string;
-    status: string;
-  };
+  todo_id: number;
+  title: string;
+  status: string;
+};
+
 const TodoList = () => {
+  const [todos, setTodos] = useState([]);
+
+  //HTTP GET request
   const getTodos = async () => {
     try {
       const response = await fetch("http://localhost:5000/todos");
@@ -15,23 +20,47 @@ const TodoList = () => {
       console.error(err);
     }
   };
+
+  //HTTP DELETE request
+  const removeTodo = async (id: number) => {
+    try {
+      const response = await fetch(`http://localhost:5000/todos/${id}`, {
+        method: "DELETE",
+      });
+      const data = await response.json();
+      getTodos();
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
     getTodos();
-  },[]);
-
-  const [todos, setTodos] = useState([]);
+  }, []);
 
   return (
-    <div className="list-container rounded-md px-4 py-4">
-        {todos.map((todo:TodoData) => {
-          return (
-            <div className="todo-item" key={todo.todo_id}>
-                <div className="circle"></div>
-                <h3>{todo.title}</h3>
-                <img className="w-5 h-5" src="../src/images/icon-cross.svg" alt="icon-cross.svg" />
+    <div className="list-container rounded-md mb-6">
+      {todos.map((todo: TodoData) => {
+        return (
+          <div
+            className="todo-item text-sm md:text-lg py-5 md:py-6 px-4 md:px-7"
+            key={todo.todo_id}
+          >
+            <div className="circle"></div>
+            <p className="todo-title mx-5 pt-1.5">{todo.title}</p>
+            <div className="icon-container">
+              <EditIcon />
+              <img
+                className="remove w-3 h-3"
+                src="../src/images/icon-cross.svg"
+                alt="icon-cross.svg"
+                onClick={() => removeTodo(todo.todo_id)}
+              />
             </div>
-          );
-        })}
+          </div>
+        );
+      })}
     </div>
   );
 };
