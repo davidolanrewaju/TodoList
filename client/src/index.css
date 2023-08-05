@@ -39,7 +39,7 @@ body {
 
 .circle {
   width: 25px;
-  height: 25px;
+  height: 23px;
   border-radius: 50%;
   border: 2px solid hsl(233, 11%, 84%);
 }
@@ -61,6 +61,12 @@ body {
 
 .list-container {
   background-color: hsl(0, 0%, 98%);
+}
+
+.todo-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 @media screen and (min-width: 320px) {
