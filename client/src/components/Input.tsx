@@ -11,14 +11,8 @@ const Input = () => {
     title: "",
   });
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setInputData({ ...inputData, [name]: value });
-  };
-
-  //Adds input value to database
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+//HTTP POST request
+  const addTodo = async () => {
     try {
       const body = { title: inputData.title };
       const response = await fetch("http://localhost:5000/todos", {
@@ -36,10 +30,22 @@ const Input = () => {
     } catch (err) {
       console.error(err);
     }
+  }
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setInputData({ ...inputData, [name]: value });
+  };
+
+  //Adds input value to database on submit
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    addTodo();
+    window.location.reload();
   };
 
   return (
-    <div className="input-container my-10">
+    <div className="input-container my-5">
       <form
         className="input-field rounded-md pl-4 md:pl-7"
         onSubmit={handleSubmit}
@@ -51,7 +57,7 @@ const Input = () => {
           name="title"
           value={inputData.title}
           onChange={handleChange}
-          className="input-text text-sm md:text-lg py-2.5 md:py-4 pl-5 pt-4 md:pt-5 bg-transparent outline-none border-collapse"
+          className="input-text text-sm md:text-lg py-2.5 md:py-3 pl-5 pt-4 md:pt-5 bg-transparent outline-none border-collapse"
           placeholder="Create a new todo..."
         />
         <button type="submit" className="enter-icon w-5 h-5 mr-4">
