@@ -1,66 +1,24 @@
-import { useEffect, useState } from "react";
-import EditIcon from "./EditIcon";
+import TodoItem from "./TodoItem";
 
-type TodoData = {
+type TodoResponse = {
   todo_id: number;
   title: string;
   status: string;
-};
+}; //TODO: Add API response type
 
-const TodoList = () => {
-  const [todos, setTodos] = useState([]);
+type TodoListProps = {
+  todos: TodoResponse[];
+  removeTodo: (id: number) => void;
+}; //TODO: Add props type
 
-  //HTTP GET request
-  const getTodos = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/todos");
-      const data = await response.json();
-      setTodos(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  //HTTP DELETE request
-  const removeTodo = async (id: number) => {
-    try {
-      const response = await fetch(`http://localhost:5000/todos/${id}`, {
-        method: "DELETE",
-      });
-      const data = await response.json();
-      getTodos();
-      console.log(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  useEffect(() => {
-    getTodos();
-  }, []);
-
+const TodoList = (props: TodoListProps) => {
+  const { todos, removeTodo } = props;
   return (
     <div className="list-container rounded-md mb-6">
-      {todos.map((todo: TodoData) => {
-        return (
-          <div
-            className="todo-item text-sm md:text-lg py-5 md:py-6 px-4 md:px-7"
-            key={todo.todo_id}
-          >
-            <div className="circle"></div>
-            <p className="todo-title mx-5 pt-1.5">{todo.title}</p>
-            <div className="icon-container">
-              <EditIcon />
-              <img
-                className="remove w-3 h-3"
-                src="../src/images/icon-cross.svg"
-                alt="icon-cross.svg"
-                onClick={() => removeTodo(todo.todo_id)}
-              />
-            </div>
-          </div>
-        );
-      })}
+      {todos.map((todo) =>(
+          <TodoItem key={todo.todo_id} todo={todo} removeTodo={removeTodo} />
+        )
+      )};
     </div>
   );
 };
