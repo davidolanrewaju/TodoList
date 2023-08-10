@@ -39,7 +39,6 @@ body {
 
 .circle {
   fill: hsl(236, 9%, 61%);
-  width: 8%;
 }
 
 .input-text {
@@ -63,7 +62,6 @@ body {
 }
 
 .todo-item {
-  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -75,10 +73,8 @@ body {
 }
 
 .icon-container {
-  width: 18%;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
 }
 
 .edit {
@@ -91,6 +87,14 @@ body {
     width: 85%;
     padding-top: 2rem;
   }
+
+  .circle {
+    width: 10%;
+  }
+
+  .icon-container {
+    width: 20%;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -98,11 +102,27 @@ body {
     background-image: url('./images/bg-desktop-light.jpg');
     width: 55%;
   }
+
+  .circle {
+    width: 8%;
+  }
+
+  .icon-container {
+    width: 18%;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   body {
     width: 50%;
     padding-top: 3rem;
+  }
+
+  .circle {
+    width: 5%;
+  }
+
+  .icon-container {
+    width: 10%;
   }
 }

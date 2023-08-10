@@ -18,7 +18,7 @@ const TodoList = (props: TodoListProps) => {
       {todos.map((todo) =>(
           <TodoItem key={todo.todo_id} todo={todo} removeTodo={removeTodo} />
         )
-      )};
+      )}
     </div>
   );
 };
