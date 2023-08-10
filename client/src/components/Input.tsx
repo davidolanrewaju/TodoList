@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
+import CircleIcon from "./Circleicon";
 
 //API Data Type
 type TodoResponse = {
@@ -11,7 +12,7 @@ const Input = () => {
     title: "",
   });
 
-//HTTP POST request
+  //HTTP POST request
   const addTodo = async () => {
     try {
       const body = { title: inputData.title };
@@ -30,7 +31,7 @@ const Input = () => {
     } catch (err) {
       console.error(err);
     }
-  }
+  };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -50,7 +51,7 @@ const Input = () => {
         className="input-field rounded-md pl-4 md:pl-7"
         onSubmit={handleSubmit}
       >
-        <div className="circle"></div>
+        <CircleIcon />
         <input
           required
           type="text"
