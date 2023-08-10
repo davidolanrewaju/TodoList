@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import CircleIcon from "./CircleIcon";
 
 //API Data Type
@@ -33,7 +33,7 @@ const Input = () => {
     }
   };
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setInputData({ ...inputData, [name]: value });
   };
