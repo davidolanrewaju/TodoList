@@ -38,8 +38,8 @@ body {
 }
 
 .circle {
-  border-radius: 50%;
-  border: 2px solid hsl(236, 33%, 92%);
+  fill: hsl(236, 9%, 61%);
+  width: 8%;
 }
 
 .input-text {
@@ -78,7 +78,7 @@ body {
   width: 18%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .edit {
@@ -91,20 +91,12 @@ body {
     width: 85%;
     padding-top: 2rem;
   }
-  .circle {
-    width: 25px;
-    height: 20px;
-  }
 }
 
 @media screen and (min-width: 768px) {
   body {
     background-image: url('./images/bg-desktop-light.jpg');
     width: 55%;
-  }
-  .circle{
-    width: 25px;
-    height: 23px;
   }
 }
 
