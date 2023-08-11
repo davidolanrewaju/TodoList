@@ -29,11 +29,25 @@ const Content = () => {
     }
   };
 
+  //HTTP EDIT REQUEST
+  const editTodo = async (id:number) => {
+    try {
+      const response = await fetch(`http://localhost:5000/todos/${id}`, {
+        method: "PUT",
+      });
+      const data = await response.json();
+      getTodos();
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   useEffect(() => {
     getTodos();
   }, []);
 
-  return <TodoList todos={todos} removeTodo={removeTodo} />;
+  return <TodoList todos={todos} removeTodo={removeTodo} editTodo={editTodo} />;
 };
 
 export default Content;

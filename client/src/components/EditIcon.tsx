@@ -1,6 +1,10 @@
-const EditIcon = () => {
+type EditIconProps = {
+  onClick: () => void;
+};
+
+const EditIcon = (props: EditIconProps) => {
   return (
-    <div>
+    <div onClick={props.onClick}>
       <svg
         className="edit w-4 h-4"
         aria-hidden="true"

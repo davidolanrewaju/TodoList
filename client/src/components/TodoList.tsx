@@ -1,4 +1,3 @@
-import Modal from "./Modal";
 import TodoItem from "./TodoItem";
 
 type TodoResponse = {
@@ -10,16 +9,16 @@ type TodoResponse = {
 type TodoListProps = {
   todos: TodoResponse[];
   removeTodo: (id: number) => void;
+  editTodo: (id: number) => void;
 }; //TODO: Add props type
 
 const TodoList = (props: TodoListProps) => {
-  const { todos, removeTodo } = props;
+  const { todos, removeTodo, editTodo } = props;
   return (
-    <div>
+    <div className="list-container rounded-md mb-6">
       {todos.map((todo) =>(
-        <div className="list-container rounded-md mb-6" key={todo.todo_id}>
-          <TodoItem todo={todo} removeTodo={removeTodo} />
-          <Modal todo={todo} removeTodo={removeTodo} />
+        <div key={todo.todo_id}>
+          <TodoItem todo={todo} removeTodo={removeTodo} editTodo={editTodo} />
         </div>
         )
       )}

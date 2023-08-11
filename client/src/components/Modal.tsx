@@ -9,9 +9,15 @@ type TodoResponse = {
 type TodoItemProps = {
   todo: TodoResponse;
   removeTodo: (id: number) => void;
+  editTodo: (id: number) => void;
 };
-const Modal = (props: TodoItemProps) => {
-  const { todo } = props;
+
+type ModalComponentProps = {
+  modalVisible: boolean;
+  setModalVisible: (modalVisible: boolean) => void;
+};
+const Modal = (props: TodoItemProps & ModalComponentProps) => {
+  const { todo, modalVisible, setModalVisible } = props;
 
   const [modalInput, setModalInput] = useState({
     title: todo.title,
@@ -22,8 +28,14 @@ const Modal = (props: TodoItemProps) => {
     setModalInput({ ...modalInput, [name]: value });
     console.log(modalInput);
   };
+
+  const handleCancel = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setModalVisible(false);
+  };
+
   return (
-    <div className="modal-container">
+    <div className={`modal-container ${modalVisible ? 'visible' : 'hidden'}`}>
       <form className="modal-form">
         <input
           className="modal-input"
@@ -33,8 +45,8 @@ const Modal = (props: TodoItemProps) => {
           value={modalInput.title}
         />
         <div className="button-container">
-          <button className="cancel-button button">Cancel</button>
-          <button className="save-button button">Save</button>
+          <button className="cancel-button button" onClick={handleCancel}>Cancel</button>
+          <button className="save-button button" type="submit">Save</button>
         </div>
       </form>
     </div>
