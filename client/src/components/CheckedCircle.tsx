@@ -1,13 +1,13 @@
-type CircleIconProps = {
+type CheckedIconProps = {
   onClick: () => void;
 };
 
-const CircleIcon = (props: CircleIconProps) => {
+const CheckedCircle = (props: CheckedIconProps) => {
   return (
     <svg
       onClick={props.onClick}
+      className="check cursor-pointer"
       viewBox="0 0 512 512"
-      className="circle cursor-pointer"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
@@ -16,9 +16,9 @@ const CircleIcon = (props: CircleIconProps) => {
           <stop offset="100%" stopColor="#c058f3" />
         </linearGradient>
       </defs>
-      <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200z"></path>
+      <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path>
     </svg>
   );
 };
 
-export default CircleIcon;
+export default CheckedCircle;

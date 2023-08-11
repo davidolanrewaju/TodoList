@@ -6,7 +6,7 @@ const EditIcon = (props: EditIconProps) => {
   return (
     <div onClick={props.onClick}>
       <svg
-        className="edit w-4 h-4"
+        className="edit w-4 h-4 lg:w-5 lg:h-5"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"

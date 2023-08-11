@@ -1,21 +1,9 @@
-import { useState, useEffect } from "react";
 import TodoList from "./TodoList";
 import TodoResponse from "../types/TodoResponseProps";
+import GetTodoProps from "../types/GetTodoProps";
 
-const Content = () => {
-  const [todos, setTodos] = useState([]);
-
-  //HTTP GET request
-  const getTodos = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/todos");
-      const data = await response.json();
-      console.log(data);
-      setTodos(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+const Content = (props: GetTodoProps) => {
+  const { todos, getTodos } = props;
 
   //HTTP DELETE request
   const removeTodo = async (id: number) => {
@@ -23,33 +11,29 @@ const Content = () => {
       const response = await fetch(`http://localhost:5000/todos/${id}`, {
         method: "DELETE",
       });
-      const data = await response.json();
-      getTodos();
-      console.log(data);
+      if (response.status === 200) {
+        getTodos();
+      }
     } catch (err) {
       console.error(err);
     }
   };
 
   //HTTP EDIT REQUEST
-  const editTodo = async (id:number, todos:TodoResponse) => {
+  const editTodo = async (id: number, todos: TodoResponse) => {
     try {
       const response = await fetch(`http://localhost:5000/todos/${id}`, {
         method: "PUT",
-        headers: {'Content-Type': 'application/json'},
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(todos),
       });
-      const data = await response.json();
-      getTodos();
-      console.log(data);
+      if (response.status === 200) {
+        getTodos();
+      }
     } catch (err) {
       console.error(err);
     }
-  }
-
-  useEffect(() => {
-    getTodos();
-  }, []);
+  };
 
   return <TodoList todos={todos} removeTodo={removeTodo} editTodo={editTodo} />;
 };

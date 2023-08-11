@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import CircleIcon from "./CircleIcon";
+import CheckedCircle from "./CheckedCircle";
+import GetTodoProps from "../types/GetTodoProps";
 
-//API Data Type
-type TodoResponse = {
-  todo_id: number;
-  title: string;
-  status: string;
-};
-const Input = () => {
+const Input = (props: GetTodoProps) => {
+  const { getTodos } = props;
   const [inputData, setInputData] = useState({
     title: "",
   });
+  const [showChecked, setShowChecked] = useState(false);
 
+  const toggleCheck = () => {
+    setShowChecked(!showChecked);
+  };
   //HTTP POST request
   const addTodo = async () => {
     try {
@@ -23,11 +24,11 @@ const Input = () => {
         },
         body: JSON.stringify(body),
       });
-      const data: TodoResponse = await response.json();
-      console.log(data);
-
-      //Clear input field after submission
-      setInputData({ title: "" });
+      if (response.status === 200) {
+        getTodos();
+        //Clear input field after submission
+        setInputData({ title: "" });
+      }
     } catch (err) {
       console.error(err);
     }
@@ -42,7 +43,6 @@ const Input = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     addTodo();
-    window.location.reload();
   };
 
   return (
@@ -51,7 +51,7 @@ const Input = () => {
         className="input-field rounded-md pl-4 md:pl-7"
         onSubmit={handleSubmit}
       >
-        <CircleIcon />
+        {showChecked ? <CheckedCircle onClick={toggleCheck} /> : <CircleIcon onClick={toggleCheck} />}
         <input
           required
           type="text"

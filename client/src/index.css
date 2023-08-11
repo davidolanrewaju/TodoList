@@ -38,7 +38,12 @@ body {
 }
 
 .circle {
-  fill: hsl(236, 9%, 61%);
+  fill: hsl(233, 11%, 84%);
+}
+
+.check {
+  fill: url(#circle-gradient);
+  width: 5%;
 }
 
 .input-text {
@@ -66,6 +71,7 @@ body {
   flex-direction: row;
   align-items: center;
   border-bottom: 1px solid hsl(236, 33%, 92%);
+  justify-content: space-around;
 }
 
 .todo-title {
@@ -75,6 +81,7 @@ body {
 .icon-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .edit {
@@ -130,6 +137,27 @@ body {
   background-color: rgb(165, 255, 154);
 }
 
+/* Hover Styles */
+.hover {
+  position: relative;
+}
+
+.hover .icon-container {
+  opacity: 0; /* Initially hide the icons */
+  position: absolute;
+  right: 0;
+  transition: opacity 0.3s;
+}
+
+.hover:hover .icon-container {
+  opacity: 1; /* Show the icons on hover */
+}
+
+.circle:hover {
+  fill: url(#circle-gradient);
+}
+
+
 @media screen and (min-width: 320px) {
   body {
     background-image: url('./images/bg-mobile-light.jpg');
@@ -180,7 +208,7 @@ body {
   }
 
   .icon-container {
-    width: 10%;
+    width: 11%;
   }
 
   .modal-form {

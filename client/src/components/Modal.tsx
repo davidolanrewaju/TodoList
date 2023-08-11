@@ -1,16 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import TodoItemProps from "../types/TodoItemProps";
 import ModalComponentProps from "../types/ModalComponentProps";
 
 const Modal = (props: TodoItemProps & ModalComponentProps) => {
   const { todo, modalVisible, setModalVisible, editTodo } = props;
 
-  const [modalInput, setModalInput] = useState({title: todo.title});
+  //Memoization of input data
+  const initialModalInput = useMemo(() => {
+    return { title: todo.title };
+  }, [todo.title]);
+
+  const [modalInput, setModalInput] = useState({ title: todo.title });
+
+  useEffect(() => {
+    if (modalVisible) {
+      setModalInput(initialModalInput); // Reset modalInput when modal becomes visible
+    }
+  }, [modalVisible, initialModalInput]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setModalInput({ ...modalInput, [name]: value });
-    console.log(modalInput);
+    setModalInput({ title: value });
   };
 
   const handleCancel = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -20,7 +31,7 @@ const Modal = (props: TodoItemProps & ModalComponentProps) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    editTodo(todo.todo_id, {...todo, title: modalInput.title});
+    editTodo(todo.todo_id, { ...todo, title: modalInput.title });
     setModalVisible(false);
   };
 
