@@ -2,18 +2,7 @@ import { useState } from "react";
 import Modal from "./Modal";
 import CircleIcon from "./CircleIcon";
 import EditIcon from "./EditIcon";
-
-type TodoResponse = {
-  todo_id: number;
-  title: string;
-  status: string;
-};
-
-type TodoItemProps = {
-  todo: TodoResponse;
-  removeTodo: (id: number) => void;
-  editTodo: (id: number) => void;
-}; //TODO: Add props type
+import TodoItemProps from "../types/TodoItemProps";
 
 const TodoItem = (props: TodoItemProps) => {
   const { todo, removeTodo, editTodo } = props;

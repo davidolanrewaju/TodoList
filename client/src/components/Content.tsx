@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import TodoList from "./TodoList";
+import TodoResponse from "../types/TodoResponseProps";
 
 const Content = () => {
   const [todos, setTodos] = useState([]);
@@ -9,6 +10,7 @@ const Content = () => {
     try {
       const response = await fetch("http://localhost:5000/todos");
       const data = await response.json();
+      console.log(data);
       setTodos(data);
     } catch (err) {
       console.error(err);
@@ -30,10 +32,12 @@ const Content = () => {
   };
 
   //HTTP EDIT REQUEST
-  const editTodo = async (id:number) => {
+  const editTodo = async (id:number, todos:TodoResponse) => {
     try {
       const response = await fetch(`http://localhost:5000/todos/${id}`, {
         method: "PUT",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(todos),
       });
       const data = await response.json();
       getTodos();

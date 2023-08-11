@@ -1,16 +1,5 @@
 import TodoItem from "./TodoItem";
-
-type TodoResponse = {
-  todo_id: number;
-  title: string;
-  status: string;
-}; //TODO: Add API response type
-
-type TodoListProps = {
-  todos: TodoResponse[];
-  removeTodo: (id: number) => void;
-  editTodo: (id: number) => void;
-}; //TODO: Add props type
+import TodoListProps from "../types/TodoListProps";
 
 const TodoList = (props: TodoListProps) => {
   const { todos, removeTodo, editTodo } = props;
