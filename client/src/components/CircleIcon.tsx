@@ -7,7 +7,7 @@ const CircleIcon = (props: CircleIconProps) => {
     <svg
       onClick={props.onClick}
       viewBox="0 0 512 512"
-      className="circle cursor-pointer"
+      className="circle cursor-pointer w-9 h-9"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>

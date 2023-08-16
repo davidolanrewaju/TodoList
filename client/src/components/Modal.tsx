@@ -39,7 +39,7 @@ const Modal = (props: TodoItemProps & ModalComponentProps) => {
     <div className={`modal-container ${modalVisible ? "block" : "hidden"}`}>
       {" "}
       {/* Block and hidden are tailwind css classnames */}
-      <form className="modal-form" onSubmit={handleSubmit}>
+      <form className="modal-form w-96" onSubmit={handleSubmit}>
         <input
           className="modal-input"
           type="text"

@@ -52,6 +52,11 @@ const Input = (props: GetTodoProps) => {
         onSubmit={handleSubmit}
       >
         {showChecked ? <CheckedCircle onClick={toggleCheck} /> : <CircleIcon onClick={toggleCheck} />}
+        <img
+        className="check-icon w-3.5 h-3.5 relative"
+        src="../src/images/icon-check.svg"
+        alt="icon-check"
+      />
         <input
           required
           type="text"

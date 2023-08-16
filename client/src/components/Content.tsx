@@ -22,7 +22,7 @@ const Content = (props: GetTodoProps) => {
   //HTTP EDIT REQUEST
   const editTodo = async (id: number, todos: TodoResponse) => {
     try {
-      const response = await fetch(`http://localhost:5000/todos/${id}`, {
+      const response = await fetch(`http://localhost:5000/todos/${id}/edit/title`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(todos),
@@ -35,7 +35,23 @@ const Content = (props: GetTodoProps) => {
     }
   };
 
-  return <TodoList todos={todos} removeTodo={removeTodo} editTodo={editTodo} />;
+  
+  const editTodoStatus = async (id: number, todos: TodoResponse) => {
+    try {
+      const response = await fetch(`http://localhost:5000/todos/${id}/edit/status`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(todos),
+      });
+      if (response.status === 200) {
+        getTodos();
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  return <TodoList todos={todos} removeTodo={removeTodo} editTodo={editTodo} editTodoStatus={editTodoStatus} />;
 };
 
 export default Content;
