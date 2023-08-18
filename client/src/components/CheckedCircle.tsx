@@ -6,7 +6,7 @@ const CheckedCircle = (props: CheckedIconProps) => {
   return (
     <svg
       onClick={props.onClick}
-      className="check cursor-pointer w-9 h-9"
+      className="check cursor-pointer w-8 h-8"
       viewBox="0 0 512 512"
       xmlns="http://www.w3.org/2000/svg"
     >
