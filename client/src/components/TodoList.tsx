@@ -19,14 +19,41 @@ const TodoList = (props: TodoListProps) => {
   }
 
   return (
-    <div className="list-container rounded-md mb-6">
-      {filteredTodos.map((todo) =>(
-        <div key={todo.todo_id}>
-          <TodoItem todo={todo} removeTodo={removeTodo} editTodo={editTodo} editTodoStatus={editTodoStatus} />
+    <div>
+      {filteredTodos.length ? (
+        <div className="list-container rounded-md mb-6">
+          {filteredTodos.map((todo) => (
+            <div key={todo.todo_id}>
+              <TodoItem
+                todo={todo}
+                removeTodo={removeTodo}
+                editTodo={editTodo}
+                editTodoStatus={editTodoStatus}
+              />
+            </div>
+          ))}
+          <TodoListInfo
+            setFilter={setFilter}
+            filteredTodos={filteredTodos}
+            todos={todos}
+            removeTodo={removeTodo}
+            editTodo={editTodo}
+            editTodoStatus={editTodoStatus}
+          />
         </div>
-        )
+      ) : (
+        <div>
+          <p className="empty-list mb-7 p-24 text-xl">Your List is empty</p>
+          <TodoListInfo
+            setFilter={setFilter}
+            filteredTodos={filteredTodos}
+            todos={todos}
+            removeTodo={removeTodo}
+            editTodo={editTodo}
+            editTodoStatus={editTodoStatus}
+          />
+        </div>
       )}
-      <TodoListInfo setFilter={setFilter} filteredTodos={filteredTodos} todos={todos} removeTodo={removeTodo} editTodo={editTodo} editTodoStatus={editTodoStatus} />
     </div>
   );
 };

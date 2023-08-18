@@ -14,8 +14,17 @@
 body {
   background-color: hsl(0, 0%, 98%);
   background-repeat: no-repeat;
-  background-size: contain;
   margin: auto;
+}
+
+.empty-list {
+  width: 100%;
+  background-color: hsl(0, 0%, 98%);
+  box-shadow: 0px 18px 16px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  text-align: center;
+  color: hsl(236, 9%, 61%);
+  font-weight: bold;
 }
 
 .header-text {
@@ -64,6 +73,7 @@ body {
 .enter {
   color: hsl(233, 11%, 84%);
   align-self: flex-end;
+  cursor: pointer;
 }
 
 .list-container {
@@ -91,6 +101,11 @@ body {
 
 .edit {
   color: hsl(236, 9%, 61%);
+  cursor: pointer;
+}
+
+.remove {
+  cursor: pointer;
 }
 
 .modal-container {
@@ -218,6 +233,9 @@ body {
 }
 
 @media screen and (min-width: 425px) {
+  body {
+    background-size: contain;
+  }
   .list-options ul,
   .list-amount p,
   .clear-completed p {
