@@ -1,14 +1,14 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   width: 100%;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 body {
@@ -46,7 +46,7 @@ body {
 }
 
 .check-icon {
-  right: 1.45rem;
+  right: 1.35rem;
   cursor: pointer;
 }
 
@@ -68,7 +68,7 @@ body {
 
 .list-container {
   background-color: hsl(0, 0%, 98%);
-  box-shadow: 0px 18px 16px 1px rgba(0,0,0,0.15);
+  box-shadow: 0px 18px 16px 1px rgba(0, 0, 0, 0.15);
 }
 
 .todo-item {
@@ -149,7 +149,30 @@ body {
   color: hsl(233, 11%, 84%);
 }
 
+.list-info,
+.list-amount,
+.clear-completed {
+  color: hsl(236, 9%, 61%);
+}
+
+.list-info {
+  display: flex;
+  align-items: center;
+}
+
+.list-options ul {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.clear-completed p {
+  display: flex;
+  justify-content: flex-end;
+}
+
 /* Hover Styles */
+
 .hover {
   position: relative;
 }
@@ -169,19 +192,51 @@ body {
   fill: url(#circle-gradient);
 }
 
+.clear-completed p:hover,
+.list-options ul li:hover {
+  color: hsl(235, 19%, 35%);
+  cursor: pointer;
+}
+
+.list-options ul .active {
+  color: hsl(220, 98%, 61%);
+}
 
 @media screen and (min-width: 320px) {
   body {
-    background-image: url('./images/bg-mobile-light.jpg');
+    background-image: url("./images/bg-mobile-light.jpg");
     width: 85%;
     padding-top: 2rem;
+  }
+
+  .list-options ul,
+  .list-amount p,
+  .clear-completed p {
+    font-size: 0.65rem;
+    line-height: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .list-options ul,
+  .list-amount p,
+  .clear-completed p {
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 }
 
 @media screen and (min-width: 768px) {
   body {
-    background-image: url('./images/bg-desktop-light.jpg');
+    background-image: url("./images/bg-desktop-light.jpg");
     width: 55%;
+  }
+
+  .list-options ul,
+  .list-amount p,
+  .clear-completed p {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 
@@ -189,5 +244,12 @@ body {
   body {
     width: 50%;
     padding-top: 3rem;
+  }
+
+  .list-options ul,
+  .list-amount p,
+  .clear-completed p {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }

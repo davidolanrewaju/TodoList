@@ -9,14 +9,14 @@ const TodoItem = (props: TodoItemProps) => {
   const { todo, removeTodo, editTodo, editTodoStatus } = props;
 
   const [modalVisible, setModalVisible] = useState(false);
-  const [showChecked, setShowChecked] = useState(todo.status === "active");
+  const [showChecked, setShowChecked] = useState(todo.status === "completed");
 
   const displayModal = () => {
     setModalVisible(!modalVisible);
   };
 
   const toggleCheck = () => {
-    const updatedStatus = showChecked ? "completed" : "active";
+    const updatedStatus = showChecked ? "active" : "completed";
     editTodoStatus(todo.todo_id, { ...todo, status: updatedStatus });
     setShowChecked(!showChecked);
   };
@@ -34,7 +34,7 @@ const TodoItem = (props: TodoItemProps) => {
         alt="icon-check"
       />
       <p className={`todo-title py-1 md:py-2 pl-5 pt-2 md:pt-3 cursor-pointer ${
-          todo.status === "active" ? "completed" : ""
+          todo.status === "completed" ? "completed" : ""
         }`}>
         {todo.title}
       </p>
