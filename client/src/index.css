@@ -11,22 +11,9 @@
   font-family: "Josefin Sans", sans-serif;
 }
 
-.light-bg-color {
-  background-color: hsl(0, 0%, 93%);
-}
+/* Main Styles */
 
-.dark-bg-color {
-  background-color: hsl(235, 21%, 11%);
-}
-
-.todo-item-light {
-  border-bottom: 1px solid hsl(236, 33%, 92%);
-}
-
-.todo-item-dark {
-  border-bottom: 1px solid hsl(233, 14%, 35%);
-}
-
+/* This style is rendered only when the list is empty */
 .empty-list {
   width: 100%;
   border-radius: 10px;
@@ -34,18 +21,7 @@
   font-weight: bold;
 }
 
-.empty-list-light {
-  background-color: hsl(0, 0%, 98%);
-  color: hsl(236, 9%, 61%);
-  box-shadow: 0px 18px 16px 1px rgba(0, 0, 0, 0.15);
-}
-
-.empty-list-dark {
-  background-color: hsl(235, 24%, 19%);
-  color: hsl(234, 39%, 85%);
-  box-shadow: 0px 18px 16px 1px rgba(0, 0, 0, 0.4);
-}
-
+/* These styles are for the header of the design (the todo text and the theme icon) */
 .header-text {
   letter-spacing: 0.8rem;
 }
@@ -57,38 +33,13 @@
   align-items: center;
 }
 
+/* These styles are for the todo input field */
 .input-field {
   display: flex;
   flex-direction: row;
   align-items: center;
-  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.1);
   width: 100%;
-}
-
-.input-field-light {
-  background-color: hsl(0, 0%, 98%);
-}
-
-.input-field-dark {
-  background-color: hsl(235, 24%, 19%);
-}
-
-.circle-light {
-  fill: hsl(233, 11%, 84%);
-}
-
-.circle-dark {
-  fill: hsl(237, 14%, 26%);
-}
-
-.check {
-  fill: url(#circle-gradient);
-}
-
-.check-icon {
-  left: 0.58rem;
-  bottom: 1.4rem;
-  cursor: pointer;
 }
 
 .input-text {
@@ -108,29 +59,23 @@
   cursor: pointer;
 }
 
-.list-container-light {
-  background-color: hsl(0, 0%, 98%);
-  box-shadow: 0px 15px 16px 1px rgba(0, 0, 0, 0.15);
+/* These styles are for the icons used in generating todo check */
+.check {
+  fill: url(#circle-gradient);
 }
 
-.list-container-dark {
-  background-color: hsl(235, 24%, 19%);
-  box-shadow: 0px 15px 16px 1px rgba(0, 0, 0, 0.4);
+.check-icon {
+  left: 0.58rem;
+  bottom: 1.4rem;
+  cursor: pointer;
 }
 
+/* These styles are for the todo items */
 .todo-item {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-}
-
-.todo-title-light {
-  color: hsl(235, 19%, 35%);
-}
-
-.todo-title-dark {
-  color: hsl(234, 39%, 85%);
 }
 
 .icon-container {
@@ -148,6 +93,7 @@
   cursor: pointer;
 }
 
+/* These styles are rendered when the pop-up modal appears */
 .modal-container {
   position: fixed;
   top: 0;
@@ -166,14 +112,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.modal-form-light {
-  background-color: white;
-}
-
-.modal-form-dark {
-  background-color: hsl(237, 14%, 26%);
 }
 
 .modal-input {
@@ -206,11 +144,13 @@
   background-color: rgb(165, 255, 154);
 }
 
+/* This style is used to signify a task has been completed by striking through the text */
 .completed {
   text-decoration: line-through;
   color: hsl(233, 11%, 84%);
 }
 
+/* These styles are for the footer prompts used for filtering details of the todo list */
 .list-info,
 .list-amount,
 .clear-completed {
@@ -233,25 +173,41 @@
   justify-content: flex-end;
 }
 
-/* Hover Styles */
+/* Light Theme */
 
-.hover {
-  position: relative;
+.todo-item-light {
+  border-bottom: 1px solid hsl(236, 33%, 92%);
 }
 
-.hover .icon-container {
-  opacity: 0; /* Initially hide the icons */
-  position: absolute;
-  right: 0;
-  transition: opacity 0.3s;
+.light-bg-color {
+  background-color: hsl(0, 0%, 93%);
 }
 
-.hover:hover .icon-container {
-  opacity: 1; /* Show the icons on hover */
+.empty-list-light {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(236, 9%, 61%);
+  box-shadow: 0px 18px 16px 1px rgba(0, 0, 0, 0.15);
 }
 
-.circle:hover {
-  fill: url(#circle-gradient);
+.circle-light {
+  fill: hsl(233, 11%, 84%);
+}
+
+.input-field-light {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.list-container-light {
+  background-color: hsl(0, 0%, 98%);
+  box-shadow: 0px 15px 16px 1px rgba(0, 0, 0, 0.15);
+}
+
+.todo-title-light {
+  color: hsl(235, 19%, 35%);
+}
+
+.modal-form-light {
+  background-color: white;
 }
 
 .clear-completed-light p:hover,
@@ -260,10 +216,68 @@
   cursor: pointer;
 }
 
+/* Dark Theme */
+
+.todo-item-dark {
+  border-bottom: 1px solid hsl(233, 14%, 35%);
+}
+
+.dark-bg-color {
+  background-color: hsl(235, 21%, 11%);
+}
+
+.empty-list-dark {
+  background-color: hsl(235, 24%, 19%);
+  color: hsl(234, 39%, 85%);
+  box-shadow: 0px 18px 16px 1px rgba(0, 0, 0, 0.4);
+}
+
+.circle-dark {
+  fill: hsl(237, 14%, 26%);
+}
+
+.input-field-dark {
+  background-color: hsl(235, 24%, 19%);
+}
+
+.list-container-dark {
+  background-color: hsl(235, 24%, 19%);
+  box-shadow: 0px 15px 16px 1px rgba(0, 0, 0, 0.4);
+}
+
+.todo-title-dark {
+  color: hsl(234, 39%, 85%);
+}
+
+.modal-form-dark {
+  background-color: hsl(237, 14%, 26%);
+}
+
 .clear-completed-dark p:hover,
 .list-options-dark ul li:hover {
   color: hsl(236, 33%, 92%);
   cursor: pointer;
+}
+
+/* Hover Styles */
+
+.hover {
+  position: relative;
+}
+
+.hover .icon-container {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  transition: opacity 0.3s;
+}
+
+.hover:hover .icon-container {
+  opacity: 1;
+}
+
+.circle:hover {
+  fill: url(#circle-gradient);
 }
 
 .list-options ul .active {
