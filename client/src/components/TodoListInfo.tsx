@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TodoListProps from "../types/TodoListProps";
 const TodoListInfo = (props: TodoListProps) => {
-  const { todos, setFilter, filteredTodos, removeTodo } = props;
+  const { todos, setFilter, filteredTodos, removeTodo, darkMode } = props;
   const [activeFilter, setActiveFilter] = useState("all");
 
   const handleFilterChange = (newFilter: string) => {
@@ -32,7 +32,7 @@ const TodoListInfo = (props: TodoListProps) => {
         </p>
       </div>
 
-      <div className="list-options">
+      <div className={`list-options ${darkMode ? "list-options-dark" : "list-options-light"}`}>
         <ul>
           <li
             className={`${activeFilter === "all" ? "active" : ""}`}
@@ -55,7 +55,7 @@ const TodoListInfo = (props: TodoListProps) => {
         </ul>
       </div>
 
-      <div className="clear-completed">
+      <div className={`clear-completed ${darkMode ? "clear-completed-dark" : "clear-completed-light"}`}>
         <p onClick= {() => handleCompletedTodos()}>Clear Completed</p>
       </div>
     </div>

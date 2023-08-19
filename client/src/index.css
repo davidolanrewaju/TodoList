@@ -11,20 +11,39 @@
   font-family: "Josefin Sans", sans-serif;
 }
 
-body {
-  background-color: hsl(0, 0%, 98%);
-  background-repeat: no-repeat;
-  margin: auto;
+.light-bg-color {
+  background-color: hsl(0, 0%, 93%);
+}
+
+.dark-bg-color {
+  background-color: hsl(235, 21%, 11%);
+}
+
+.todo-item-light {
+  border-bottom: 1px solid hsl(236, 33%, 92%);
+}
+
+.todo-item-dark {
+  border-bottom: 1px solid hsl(233, 14%, 35%);
 }
 
 .empty-list {
   width: 100%;
-  background-color: hsl(0, 0%, 98%);
-  box-shadow: 0px 18px 16px 1px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   text-align: center;
-  color: hsl(236, 9%, 61%);
   font-weight: bold;
+}
+
+.empty-list-light {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(236, 9%, 61%);
+  box-shadow: 0px 18px 16px 1px rgba(0, 0, 0, 0.15);
+}
+
+.empty-list-dark {
+  background-color: hsl(235, 24%, 19%);
+  color: hsl(234, 39%, 85%);
+  box-shadow: 0px 18px 16px 1px rgba(0, 0, 0, 0.4);
 }
 
 .header-text {
@@ -42,12 +61,24 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: hsl(0, 0%, 98%);
+  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.10);
   width: 100%;
 }
 
-.circle {
+.input-field-light {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.input-field-dark {
+  background-color: hsl(235, 24%, 19%);
+}
+
+.circle-light {
   fill: hsl(233, 11%, 84%);
+}
+
+.circle-dark {
+  fill: hsl(237, 14%, 26%);
 }
 
 .check {
@@ -55,7 +86,8 @@ body {
 }
 
 .check-icon {
-  right: 1.35rem;
+  left: 0.58rem;
+  bottom: 1.4rem;
   cursor: pointer;
 }
 
@@ -76,21 +108,29 @@ body {
   cursor: pointer;
 }
 
-.list-container {
+.list-container-light {
   background-color: hsl(0, 0%, 98%);
-  box-shadow: 0px 18px 16px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 15px 16px 1px rgba(0, 0, 0, 0.15);
+}
+
+.list-container-dark {
+  background-color: hsl(235, 24%, 19%);
+  box-shadow: 0px 15px 16px 1px rgba(0, 0, 0, 0.4);
 }
 
 .todo-item {
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom: 1px solid hsl(236, 33%, 92%);
   justify-content: space-around;
 }
 
-.todo-title {
+.todo-title-light {
   color: hsl(235, 19%, 35%);
+}
+
+.todo-title-dark {
+  color: hsl(234, 39%, 85%);
 }
 
 .icon-container {
@@ -114,12 +154,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(41, 41, 41, 0.2);
+  background-color: rgba(41, 41, 41, 0.5);
   z-index: 1;
 }
 
 .modal-form {
-  background-color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -127,6 +166,14 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.modal-form-light {
+  background-color: white;
+}
+
+.modal-form-dark {
+  background-color: hsl(237, 14%, 26%);
 }
 
 .modal-input {
@@ -207,9 +254,15 @@ body {
   fill: url(#circle-gradient);
 }
 
-.clear-completed p:hover,
-.list-options ul li:hover {
+.clear-completed-light p:hover,
+.list-options-light ul li:hover {
   color: hsl(235, 19%, 35%);
+  cursor: pointer;
+}
+
+.clear-completed-dark p:hover,
+.list-options-dark ul li:hover {
+  color: hsl(236, 33%, 92%);
   cursor: pointer;
 }
 
@@ -218,12 +271,6 @@ body {
 }
 
 @media screen and (min-width: 320px) {
-  body {
-    background-image: url("./images/bg-mobile-light.jpg");
-    width: 85%;
-    padding-top: 2rem;
-  }
-
   .list-options ul,
   .list-amount p,
   .clear-completed p {
@@ -233,9 +280,6 @@ body {
 }
 
 @media screen and (min-width: 425px) {
-  body {
-    background-size: contain;
-  }
   .list-options ul,
   .list-amount p,
   .clear-completed p {
@@ -245,11 +289,6 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  body {
-    background-image: url("./images/bg-desktop-light.jpg");
-    width: 55%;
-  }
-
   .list-options ul,
   .list-amount p,
   .clear-completed p {
@@ -259,11 +298,6 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
-  body {
-    width: 50%;
-    padding-top: 3rem;
-  }
-
   .list-options ul,
   .list-amount p,
   .clear-completed p {

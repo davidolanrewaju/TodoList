@@ -3,7 +3,7 @@ import TodoItemProps from "../types/TodoItemProps";
 import ModalComponentProps from "../types/ModalComponentProps";
 
 const Modal = (props: TodoItemProps & ModalComponentProps) => {
-  const { todo, modalVisible, setModalVisible, editTodo } = props;
+  const { todo, modalVisible, setModalVisible, editTodo, darkMode } = props;
 
   //Memoization of input data
   const initialModalInput = useMemo(() => {
@@ -39,7 +39,7 @@ const Modal = (props: TodoItemProps & ModalComponentProps) => {
     <div className={`modal-container ${modalVisible ? "block" : "hidden"}`}>
       {" "}
       {/* Block and hidden are tailwind css classnames */}
-      <form className="modal-form w-96" onSubmit={handleSubmit}>
+      <form className={`modal-form w-96 ${darkMode ? "modal-form-dark" : "modal-form-light"}`} onSubmit={handleSubmit}>
         <input
           className="modal-input"
           type="text"

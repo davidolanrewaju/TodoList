@@ -1,13 +1,15 @@
 type CircleIconProps = {
   onClick: () => void;
+  darkMode: boolean;
 };
 
 const CircleIcon = (props: CircleIconProps) => {
+  const { darkMode } = props;
   return (
     <svg
       onClick={props.onClick}
       viewBox="0 0 512 512"
-      className="circle cursor-pointer w-8 h-8"
+      className={`circle cursor-pointer w-8 h-8 ${darkMode ? "circle-dark" : "circle-light"}`}
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>

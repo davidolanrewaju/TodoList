@@ -4,7 +4,7 @@ import CheckedCircle from "./CheckedCircle";
 import GetTodoProps from "../types/GetTodoProps";
 
 const Input = (props: GetTodoProps) => {
-  const { getTodos } = props;
+  const { getTodos, darkMode } = props;
   const [inputData, setInputData] = useState({
     title: "",
   });
@@ -48,15 +48,23 @@ const Input = (props: GetTodoProps) => {
   return (
     <div className="input-container my-5">
       <form
-        className="input-field rounded-md pl-4 md:pl-7"
+        className={`input-field rounded-md pl-4 md:pl-7 ${
+          darkMode ? "input-field-dark" : "input-field-light"
+        }`}
         onSubmit={handleSubmit}
       >
-        {showChecked ? <CheckedCircle onClick={toggleCheck} /> : <CircleIcon onClick={toggleCheck} />}
-        <img
-        className="check-icon w-3.5 h-3.5 relative"
-        src="../src/images/icon-check.svg"
-        alt="icon-check"
-      />
+        {showChecked ? (
+          <div>
+            <CheckedCircle onClick={toggleCheck} />
+            <img
+              className="check-icon w-3.5 h-3.5 relative"
+              src="../src/images/icon-check.svg"
+              alt="icon-check"
+            />
+          </div>
+        ) : (
+          <CircleIcon darkMode={darkMode} onClick={toggleCheck} />
+        )}
         <input
           required
           type="text"

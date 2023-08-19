@@ -3,7 +3,7 @@ import TodoResponse from "../types/TodoResponseProps";
 import GetTodoProps from "../types/GetTodoProps";
 
 const Content = (props: GetTodoProps) => {
-  const { todos, getTodos } = props;
+  const { todos, getTodos, darkMode } = props;
 
   //HTTP DELETE request
   const removeTodo = async (id: number) => {
@@ -51,7 +51,7 @@ const Content = (props: GetTodoProps) => {
     }
   };
 
-  return <TodoList todos={todos} removeTodo={removeTodo} editTodo={editTodo} editTodoStatus={editTodoStatus} />;
+  return <TodoList darkMode={darkMode} todos={todos} removeTodo={removeTodo} editTodo={editTodo} editTodoStatus={editTodoStatus} />;
 };
 
 export default Content;

@@ -4,7 +4,7 @@ import TodoListProps from "../types/TodoListProps";
 import TodoListInfo from "./TodoListInfo";
 
 const TodoList = (props: TodoListProps) => {
-  const { todos, removeTodo, editTodo, editTodoStatus } = props;
+  const { todos, removeTodo, editTodo, editTodoStatus, darkMode } = props;
 
   const [filter, setFilter] = useState("all");
 
@@ -21,7 +21,7 @@ const TodoList = (props: TodoListProps) => {
   return (
     <div>
       {filteredTodos.length ? (
-        <div className="list-container rounded-md mb-6">
+        <div className={`${darkMode ? "list-container-dark" : "list-container-light"} rounded-md mb-6`}>
           {filteredTodos.map((todo) => (
             <div key={todo.todo_id}>
               <TodoItem
@@ -29,6 +29,7 @@ const TodoList = (props: TodoListProps) => {
                 removeTodo={removeTodo}
                 editTodo={editTodo}
                 editTodoStatus={editTodoStatus}
+                darkMode={darkMode}
               />
             </div>
           ))}
@@ -39,11 +40,12 @@ const TodoList = (props: TodoListProps) => {
             removeTodo={removeTodo}
             editTodo={editTodo}
             editTodoStatus={editTodoStatus}
+            darkMode={darkMode}
           />
         </div>
       ) : (
         <div>
-          <p className="empty-list mb-7 p-24 text-xl">Your List is empty</p>
+          <p className={`empty-list mb-7 p-24 text-xl ${darkMode ? "empty-list-dark" : "empty-list-light"}`}>Your List is empty</p>
           <TodoListInfo
             setFilter={setFilter}
             filteredTodos={filteredTodos}
@@ -51,6 +53,7 @@ const TodoList = (props: TodoListProps) => {
             removeTodo={removeTodo}
             editTodo={editTodo}
             editTodoStatus={editTodoStatus}
+            darkMode={darkMode}
           />
         </div>
       )}

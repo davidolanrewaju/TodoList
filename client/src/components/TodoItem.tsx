@@ -6,7 +6,7 @@ import EditIcon from "./EditIcon";
 import TodoItemProps from "../types/TodoItemProps";
 
 const TodoItem = (props: TodoItemProps) => {
-  const { todo, removeTodo, editTodo, editTodoStatus } = props;
+  const { todo, removeTodo, editTodo, editTodoStatus, darkMode } = props;
 
   const [modalVisible, setModalVisible] = useState(false);
   const [showChecked, setShowChecked] = useState(todo.status === "completed");
@@ -22,20 +22,22 @@ const TodoItem = (props: TodoItemProps) => {
   };
 
   return (
-    <div className="todo-item text-sm md:text-lg py-5 md:py-6 pl-4 md:pl-7 hover">
+    <div className={`todo-item text-sm md:text-lg py-5 md:py-6 pl-4 md:pl-7 hover ${darkMode ? "todo-item-dark" : "todo-item-light"}`}>
       {showChecked ? (
+        <div className="w-auto mt-3">
         <CheckedCircle onClick={toggleCheck} />
+        <img
+          className="check-icon w-3.5 h-3.5 relative"
+          src="../src/images/icon-check.svg"
+          alt="icon-check"
+        />
+      </div>
       ) : (
-        <CircleIcon onClick={toggleCheck} />
+        <CircleIcon darkMode={darkMode} onClick={toggleCheck} />
       )}
-      <img
-        className="check-icon w-3.5 h-3.5 relative"
-        src="../src/images/icon-check.svg"
-        alt="icon-check"
-      />
       <p className={`todo-title py-1 md:py-2 pl-5 pt-2 md:pt-3 cursor-pointer ${
           todo.status === "completed" ? "completed" : ""
-        }`}>
+        } ${darkMode ? "todo-title-dark" : "todo-title-light"}`}>
         {todo.title}
       </p>
       <div className="icon-container mr-5 ml-2 w-16">
@@ -54,6 +56,7 @@ const TodoItem = (props: TodoItemProps) => {
         editTodoStatus={editTodoStatus}
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
+        darkMode={darkMode}
       />
     </div>
   );
