@@ -15,7 +15,7 @@ function App() {
   //HTTP GET request
   const getTodos = async () => {
     try {
-      const response = await fetch("http://localhost:5000/todos");
+      const response = await fetch("https://todolist-ltzl.onrender.com/todos");
       const data = await response.json();
       setTodos(data);
     } catch (err) {

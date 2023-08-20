@@ -20,7 +20,7 @@ const Content = (props: GetTodoProps) => {
   //HTTP DELETE request
   const removeTodo = async (id: number) => {
     try {
-      const response = await fetch(`http://localhost:5000/todos/${id}`, {
+      const response = await fetch(`https://todolist-ltzl.onrender.com/todos/${id}`, {
         method: "DELETE",
       });
       if (response.status === 200) {
@@ -34,7 +34,7 @@ const Content = (props: GetTodoProps) => {
   //HTTP EDIT REQUEST
   const editTodo = async (id: number, todos: TodoResponse) => {
     try {
-      const response = await fetch(`http://localhost:5000/todos/${id}/edit/title`, {
+      const response = await fetch(`https://todolist-ltzl.onrender.com/todos/${id}/edit/title`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(todos),
@@ -50,7 +50,7 @@ const Content = (props: GetTodoProps) => {
   
   const editTodoStatus = async (id: number, todos: TodoResponse) => {
     try {
-      const response = await fetch(`http://localhost:5000/todos/${id}/edit/status`, {
+      const response = await fetch(`https://todolist-ltzl.onrender.com/todos/${id}/edit/status`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(todos),

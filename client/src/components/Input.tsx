@@ -17,7 +17,7 @@ const Input = (props: GetTodoProps) => {
   const addTodo = async () => {
     try {
       const body = { title: inputData.title };
-      const response = await fetch("http://localhost:5000/todos", {
+      const response = await fetch("https://todolist-ltzl.onrender.com/todos", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
