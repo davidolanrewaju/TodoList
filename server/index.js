@@ -49,12 +49,12 @@ app.get("/todos/:id", async (req, res) => {
 })
 
 //Edit or Update todo
-app.put("/todos/:id", async (req, res) => {
+app.put("/todos/:id/edit/title", async (req, res) => {
     try {
         const { id } = req.params;
         const { title } = req.body;
 
-        const editTodo = await pool.query("UPDATE todos SET title = $1 WHERE todo_id = $2",
+        await pool.query("UPDATE todos SET title = $1 WHERE todo_id = $2",
             [title, id]
         );
         res.json("Task edited successfully");
@@ -62,6 +62,24 @@ app.put("/todos/:id", async (req, res) => {
         console.error(err.message);
     }
 })
+
+// Update todo status
+app.put("/todos/:id/edit/status", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { status } = req.body;
+  
+      await pool.query(
+        "UPDATE todos SET status = $1 WHERE todo_id = $2",
+        [status, id]
+      );
+  
+      res.json("Todo status updated successfully");
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).json("An error occurred");
+    }
+  });  
 
 //Delete todo
 app.delete("/todos/:id", async (req, res) => {
