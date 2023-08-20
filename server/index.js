@@ -1,3 +1,4 @@
+const PORT = process.env.PORT ?? 5000
 const express = require("express");
 const cors = require("cors");
 const pool = require("./db.js");
@@ -93,6 +94,6 @@ app.delete("/todos/:id", async (req, res) => {
     }
 })
 
-app.listen(5000, () => {
-    console.log('listening on port 5000...')
+app.listen(PORT, () => {
+    console.log(`listening on port ${PORT}...`)
 });   
