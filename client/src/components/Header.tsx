@@ -11,14 +11,14 @@ const Header = (props: GetTodoProps) => {
       {darkMode ? (
         <img
           className="w-6 h-6 md:w-8 md:h-8 cursor-pointer"
-          src="../src/images/icon-sun.svg"
+          src="images/icon-sun.svg"
           alt="light-mode"
           onClick={handleChangeMode}
         />
       ) : (
         <img
           className="w-6 h-6 md:w-8 md:h-8 cursor-pointer"
-          src="../src/images/icon-moon.svg"
+          src="images/icon-moon.svg"
           alt="dark-mode"
           onClick={handleChangeMode}
         />

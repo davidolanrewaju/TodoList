@@ -1,22 +1,9 @@
-import { useState } from "react";
 import TodoItem from "./TodoItem";
 import TodoListProps from "../types/TodoListProps";
 import TodoListInfo from "./TodoListInfo";
 
 const TodoList = (props: TodoListProps) => {
-  const { todos, removeTodo, editTodo, editTodoStatus, darkMode } = props;
-
-  const [filter, setFilter] = useState("all");
-
-  const todosActive = todos.filter((todo) => todo.status === "active");
-  const todosCompleted = todos.filter((todo) => todo.status === "completed");
-
-  let filteredTodos = todos;
-  if (filter === "active") {
-    filteredTodos = todosActive;
-  } else if (filter === "completed") {
-    filteredTodos = todosCompleted;
-  }
+  const { filteredTodos, setFilter, todos, removeTodo, editTodo, editTodoStatus, darkMode } = props;
 
   return (
     <div>

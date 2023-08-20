@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 
 const LightBackground = () => {
-  const [imageSrc, setImageSrc] = useState('../src/images/bg-desktop-light.jpg');
+  const [imageSrc, setImageSrc] = useState('images/bg-desktop-light.jpg');
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setImageSrc('../src/images/bg-mobile-light.jpg');
+        setImageSrc('images/bg-mobile-light.jpg');
       } else {
-        setImageSrc('../src/images/bg-desktop-light.jpg');
+        setImageSrc('images/bg-desktop-light.jpg');
       }
     };
 

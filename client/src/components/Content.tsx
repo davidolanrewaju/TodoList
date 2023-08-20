@@ -1,9 +1,21 @@
+import { useState } from "react";
 import TodoList from "./TodoList";
 import TodoResponse from "../types/TodoResponseProps";
 import GetTodoProps from "../types/GetTodoProps";
 
 const Content = (props: GetTodoProps) => {
   const { todos, getTodos, darkMode } = props;
+  const [filter, setFilter] = useState("all");
+
+  const todosActive = todos.filter((todo) => todo.status === "active");
+  const todosCompleted = todos.filter((todo) => todo.status === "completed");
+
+  let filteredTodos = todos;
+  if (filter === "active") {
+    filteredTodos = todosActive;
+  } else if (filter === "completed") {
+    filteredTodos = todosCompleted;
+  }
 
   //HTTP DELETE request
   const removeTodo = async (id: number) => {
@@ -51,7 +63,7 @@ const Content = (props: GetTodoProps) => {
     }
   };
 
-  return <TodoList darkMode={darkMode} todos={todos} removeTodo={removeTodo} editTodo={editTodo} editTodoStatus={editTodoStatus} />;
+  return <TodoList filteredTodos={filteredTodos} setFilter={setFilter} darkMode={darkMode} todos={todos} removeTodo={removeTodo} editTodo={editTodo} editTodoStatus={editTodoStatus} />;
 };
 
 export default Content;

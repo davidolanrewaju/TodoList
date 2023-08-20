@@ -28,7 +28,7 @@ const TodoItem = (props: TodoItemProps) => {
         <CheckedCircle onClick={toggleCheck} />
         <img
           className="check-icon w-3.5 h-3.5 relative"
-          src="../src/images/icon-check.svg"
+          src="images/icon-check.svg"
           alt="icon-check"
         />
       </div>
@@ -44,7 +44,7 @@ const TodoItem = (props: TodoItemProps) => {
         <EditIcon onClick={displayModal} />
         <img
           className="remove w-3 h-3 lg:w-4 lg:h-4"
-          src="../src/images/icon-cross.svg"
+          src="images/icon-cross.svg"
           alt="icon-cross.svg"
           onClick={() => removeTodo(todo.todo_id)}
         />

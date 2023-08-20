@@ -58,7 +58,7 @@ const Input = (props: GetTodoProps) => {
             <CheckedCircle onClick={toggleCheck} />
             <img
               className="check-icon w-3.5 h-3.5 relative"
-              src="../src/images/icon-check.svg"
+              src="images/icon-check.svg"
               alt="icon-check"
             />
           </div>
