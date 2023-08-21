@@ -1,29 +1,29 @@
-# Frontend Mentor - Todo app solution
+# FRONTEND MENTOR - TODO APP SOLUTION
 
 This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Table of contents
+# Table of contents
 
-- 📖[Overview](#overview)
-  - 🧠[The challenge](#the-challenge)
-  - 📸[Screenshot](#screenshot)
-  - 🔗[Links](#links)
-- ♻[My process](#my-process)
-  - 🛠[Built with](#built-with)
-  - 🧐[What I learned](#what-i-learned)
-  - ⏩[Continued development](#continued-development)
-  - 📚[Useful resources](#useful-resources)
-- 👤[Author](#author)
-- 🙏[Acknowledgments](#acknowledgments)
+- [📖 Overview](#overview)
+  - [🧠 The challenge](#the-challenge)
+  - [📸 Screenshot](#screenshot)
+  - [🔗 Links](#links)
+- [♻ My process](#my-process)
+  - [🛠 Built with](#built-with)
+  - [🧐 What I learned](#what-i-learned)
+  - [⏩ Continued development](#continued-development)
+  - [📚 Useful resources](#useful-resources)
+- [👤 Author](#author)
+- [🙏 Acknowledgments](#acknowledgments)
 
 
-## 📖 Overview
+# 📖 Overview <a name="overview"></a>
 
-### 🧠 The challenge
+## 🧠 The challenge <a name="the-challenge"></a>
 
 Users should be able to:
 
-- View the optimal layout for the app depending on their device's screen size
+- View the optimal layout for the app depending on the device's screen size
 - See hover states for all interactive elements on the page
 - Add new todos to the list
 - Mark todos as complete
@@ -33,38 +33,38 @@ Users should be able to:
 - Toggle light and dark mode
 <!-- - **Bonus**: Drag and drop to reorder items on the list -->
 
-<!-- ### Screenshot
+## 📸 Screenshot <a name="screenshot"></a>
+![todolist-app-36no onrender com_ (1)](https://github.com/davidolanrewaju/TodoList/assets/63909901/93a33b42-c035-48ad-91ca-37a3305a5ff6)
 
-![](./screenshot.jpg)
+![todolist-app-36no onrender com_ (2)](https://github.com/davidolanrewaju/TodoList/assets/63909901/ec2c493c-6891-4d34-8293-dccde00f8b98)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+![todolist-app-36no onrender com_ (3)](https://github.com/davidolanrewaju/TodoList/assets/63909901/986cf4e1-cca8-40f6-bedb-8cef72f2350a)
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
+![todolist-app-36no onrender com_](https://github.com/davidolanrewaju/TodoList/assets/63909901/b47be6c2-eaeb-4ecf-8b6f-79072a117cd5)
 
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.** -->
-
-### Links
+## 🔗 Links <a name="links"></a>
 
 - Solution URL: [Github Repo](https://github.com/davidolanrewaju/TodoList)
 - Live Site URL: [Todo App Live](https://todolist-app-36no.onrender.com/)
 
-## ♻ My process
+# ♻ My process <a name="my-process"></a>
 
-### 🛠 Built with
+## 🛠 Built with <a name="built-with"></a>
 
 - Semantic HTML5 markup
 - CSS custom properties
 - Mobile-first workflow
-- Javscript
+- Javascript
+- Typescript
 - React
 - Tailwind CSS
 - Express & Node JS
 
-### What I learned
+## 🧐 What I learned <a name="what-i-learned"></a>
+While developing this project, I gained a profound comprehension of prop drilling. Additionally, I improved my understanding of utilizing the useState(), useEffect(), and useMemo() hooks. I also became acquainted with employing ternary operators as conditionals within JSX elements. Moreover, I acquired knowledge about constructing databases for online app hosting, hosting web services, and establishing connections between the database and hosted web services.
+Below are some blocks of code I am proud of:
 
-
+This code 👇🏾 was written to implement a background image and color change while switching themes
 ```jsx
 <div className={`absolute ${darkMode ? "dark-bg-color" : "light-bg-color"}`}>
         {darkMode ? <DarkBackground/> : <LightBackground />}
@@ -72,6 +72,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 </div>
 ```
 
+This one 👇🏾 gave me a better understanding of how css position works
 ```css
 .modal-container {
   position: fixed;
@@ -93,7 +94,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
   transform: translate(-50%, -50%);
 }
 ```
-
+While this 👇🏾 made me understand useEffect() and exposed me to javascript's window object
 ```js
 const [imageSrc, setImageSrc] = useState('images/bg-desktop-light.jpg');
 
@@ -115,28 +116,28 @@ const [imageSrc, setImageSrc] = useState('images/bg-desktop-light.jpg');
   }, []);
 ```
 
-### Continued development
+## ⏩ Continued development <a name="continued-development"></a>
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+Armed with the limited expertise acquired from undertaking this project, my plan is to develop skills and engage in the following:
+- Exploring the implementation of React's useContext() hook to reduce or even eliminate the need for prop drilling.
+- Delving into the realm of CSS animations.
+- Familiarizing myself with a non-relational database like MongoDB.
+- Diving into the utilization of GraphQL.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+## 📚 Useful resources <a name="useful-resources"></a>
 
-### Useful resources
+- [Tailwind cheatsheet](https://tailwindcomponents.com/cheatsheet/) - This helped me in implementing tailwind commands easily(considering this was my first project using tailwind).
+- [Dave Gray explaining prop drilling](https://www.youtube.com/watch?v=XyIXMQ9SZmI) - This was an amazing video that helped me finally understand prop drilling due to its step-by-step approach. I'd recommend it to anyone still learning this concept.
+- [ExpressJS Middleware](https://blog.webdevsimplified.com/2019-12/express-middleware-in-depth/) - This was an amazing article from WebDev Simplified, a YouTuber. He goes into explaining how to set up an express server and express middleware.
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
-## 👤 Author
+# 👤 Author <a name="author"></a>
 
 - Website - [David Olanrewaju](https://github.com/davidolanrewaju)
 - Frontend Mentor - [@dave-prog](https://www.frontendmentor.io/profile/dave-prog)
 - Twitter - [@ola_dayve](https://www.twitter.com/ola_dayve)
 - LinkedIn - [David Olanrewaju](https://www.linkedin.com/in/olanrewaju-david/)
 
-<!-- ## Acknowledgments
+# 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.** -->
+Special shout out to the internet, for the inexhaustible solutions and resources. And also to the various YouTubers who put in the effort to explain in detail complex concepts in web development.
